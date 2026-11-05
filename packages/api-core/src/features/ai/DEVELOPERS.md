@@ -153,6 +153,18 @@ Env var fallback: `WEBINY_API_OPENROUTER_API_KEY`.
 
 Source: https://openrouter.ai/models
 
+### Opper (`OpperSdkFactory.ts`)
+
+Opper is a gateway: one key reaches models from many vendors. Its model ids are pool names without a vendor prefix, so a stored model looks like `opper/claude-sonnet-5-5`. A pool is every provider that serves the model, and Opper picks the route per request.
+
+The factory list is a short pick of each vendor's current models that support tool calling, not Opper's whole catalog (700+ models, not all with tools). Pick from `https://api.opper.ai/v3/models`, keeping entries with `pooled: true`, `type: "llm"` and `tools` in `capabilities`. The `model` field is the id to use and `name` is the display name.
+
+Uses `@opperai/ai-sdk-provider`, which is built on `@ai-sdk/openai-compatible`, rather than `@ai-sdk/openai` with a different base URL, so non-OpenAI models routed through it don't get OpenAI-only request options.
+
+Env var fallback: `WEBINY_API_OPPER_API_KEY`, then `OPPER_API_KEY`.
+
+Source: https://opper.ai/models
+
 ## Adding a new model
 
 1. Verify the model supports tool/function calling.

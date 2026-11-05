@@ -3,6 +3,7 @@ import { OpenAiSdkFactory } from "./OpenAiSdkFactory.js";
 import { AnthropicSdkFactory } from "./AnthropicSdkFactory.js";
 import { GoogleSdkFactory } from "./GoogleSdkFactory.js";
 import { OpenRouterSdkFactory } from "./OpenRouterSdkFactory.js";
+import { OpperSdkFactory } from "./OpperSdkFactory.js";
 import { Ai } from "./Ai.js";
 import { AiModelRegistry } from "./AiModelRegistry.js";
 import { RemoteAiModelCatalog } from "./RemoteAiModelCatalog.js";
@@ -19,6 +20,7 @@ export const AiFeature = createFeature({
         container.register(AnthropicSdkFactory);
         container.register(GoogleSdkFactory);
         container.register(OpenRouterSdkFactory);
+        container.register(OpperSdkFactory);
         container.register(Ai);
         container.register(RemoteAiModelCatalog);
         container.register(AiModelRegistry);
